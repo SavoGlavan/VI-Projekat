@@ -9,9 +9,11 @@ public class Main {
             FileReader fileReader = new FileReader(filePath);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
+            int edgeNumber=0;
             int graphSize = Integer.parseInt(bufferedReader.readLine());
             String line=bufferedReader.readLine().trim();
             String[] weights = line.trim().split("\\s+");
+
 
             for (int i = 0; i < graphSize; i++) {
                 Node node = new Node(i, Integer.parseInt(weights[i]));
@@ -26,10 +28,11 @@ public class Main {
                     if(Integer.parseInt(neigbours[j])==1){
                         g.getNodes().get(i).getNeighbours().add(g.getNodes().get(j));
                         g.getNodes().get(j).getNeighbours().add(g.getNodes().get(i));
+                        edgeNumber++;
                     }
                 }
             }
-
+            g.setEdgeNumber(edgeNumber);
             bufferedReader.close();
             fileReader.close();
         }
@@ -47,5 +50,8 @@ public class Main {
         for(Node n: g.getNodes()){
             System.out.println(n.getNeighbours());
         }
+        System.out.println(g.getEdgeNumber());
+        System.out.println("Minimal vertex Cover");
+        System.out.print(GRASP.findMinimalVertexCover(g));
     }
 }

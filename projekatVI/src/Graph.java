@@ -7,9 +7,19 @@ public class Graph {
     private ArrayList<Node> nodes;
     private ArrayList<Node> minVertexCover;
 
+    private int edgeNumber;
     public Graph() {
         this.nodes = new ArrayList<>();
         this.minVertexCover = new ArrayList<>();
+        this.edgeNumber=0;
+    }
+
+    public int getEdgeNumber() {
+        return edgeNumber;
+    }
+
+    public void setEdgeNumber(int edgeNumber) {
+        this.edgeNumber = edgeNumber;
     }
 
     public ArrayList<Node> getNodes() {
