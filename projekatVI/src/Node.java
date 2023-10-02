@@ -21,7 +21,11 @@ public class Node {
         this.neighbours = neighbours;
     }
 
-    public int getWeight() {
+    public int getId() {
+        return id;
+    }
+
+       public int getWeight() {
         return weight;
     }
     public String toString(){
