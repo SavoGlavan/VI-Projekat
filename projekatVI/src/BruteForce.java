@@ -1,8 +1,9 @@
 import java.util.*;
 
+import java.util.*;
+
 public class BruteForce {
 
-    
     public static List<Node> minimumWeightedVertexCover(List<Node> nodes, List<Edge> edges) {
         Set<Node> bestCover = null;
         int bestWeight = Integer.MAX_VALUE;
@@ -21,12 +22,17 @@ public class BruteForce {
                 int weight = subset.stream().mapToInt(Node::getWeight).sum();
                 if (weight < bestWeight) {
                     bestWeight = weight;
-                    bestCover = subset;
+                    bestCover = new HashSet<>(subset);
                 }
             }
         }
 
-        List<Node> aList = new ArrayList<Node>(bestCover);
+        if (bestCover == null) {
+            // No valid cover found, return an empty list
+            return new ArrayList<>();
+        }
+
+        List<Node> aList = new ArrayList<>(bestCover);
 
         return aList;
     }
@@ -43,19 +49,21 @@ public class BruteForce {
     public static void main(String[] args) {
 
         TabuGraph g = TabuMain.loadInstance(
-            "C:\\Users\\obrad\\Desktop\\VI\\VI-Projekat\\projekatVI\\instances\\vc_10_10_04.txt");
-        
-
+                "C:\\Users\\obradovica\\Desktop\\VI projekat\\VI-Projekat\\projekatVI\\instances\\vc_25_80_03.txt");
 
         List<Node> vertexCover = minimumWeightedVertexCover(g.getNodes(), g.getEdges());
+
+        System.out.println(vertexCover);
+
         int sum = 0;
-        for(Node n : vertexCover){
-            sum+= n.getWeight();
+        for (Node n : vertexCover) {
+            sum += n.getWeight();
         }
         System.out.println(sum);
         System.out.println("Minimum Weighted Vertex Cover: ");
         for (Node node : vertexCover) {
             System.out.println("Node ID: " + node.getId() + ", Weight: " + node.getWeight());
         }
+
     }
 }
