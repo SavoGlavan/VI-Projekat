@@ -1,7 +1,5 @@
 import java.util.*;
 
-import java.util.*;
-
 public class BruteForce {
 
     public static List<Node> minimumWeightedVertexCover(List<Node> nodes, List<Edge> edges) {
@@ -28,7 +26,6 @@ public class BruteForce {
         }
 
         if (bestCover == null) {
-            // No valid cover found, return an empty list
             return new ArrayList<>();
         }
 
@@ -49,7 +46,7 @@ public class BruteForce {
     public static void main(String[] args) {
 
         TabuGraph g = TabuMain.loadInstance(
-                "C:\\Users\\obradovica\\Desktop\\VI projekat\\VI-Projekat\\projekatVI\\instances\\vc_25_80_03.txt");
+                "C:\\Users\\obrad\\Desktop\\VI\\VI-Projekat\\projekatVI\\instances\\vc_10_10_02.txt");
 
         List<Node> vertexCover = minimumWeightedVertexCover(g.getNodes(), g.getEdges());
 

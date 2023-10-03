@@ -14,6 +14,10 @@ class Edge {
     public Node getNode2() {
         return node2;
     }
+
+    public boolean includes(Node node) {
+        return node1.equals(node) || node2.equals(node);
+    }
     public String toString(){
         return node1+" - " + node2;
     }

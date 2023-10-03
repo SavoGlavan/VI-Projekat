@@ -3,8 +3,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
+
 
 public class TabuMain {
     public static TabuGraph loadInstance(String filePath) {
@@ -50,7 +49,7 @@ public class TabuMain {
 
     public static void main(String[] args) {
         TabuGraph g = loadInstance(
-                "C:\\Users\\obrad\\Desktop\\VI\\VI-Projekat\\projekatVI\\instances\\vc_10_10_04.txt");
+            "C:\\Users\\obrad\\Desktop\\VI\\VI-Projekat\\projekatVI\\instances\\vc_200_500_01.txt");
 
         System.out.println(g.getEdges());
         List<Node> result = TabuSearch.vertexCoverTabuSearch(g.getNodes(), g.getEdges());
