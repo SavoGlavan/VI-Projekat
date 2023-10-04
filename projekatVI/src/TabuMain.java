@@ -4,7 +4,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
 
-
 public class TabuMain {
     public static TabuGraph loadInstance(String filePath) {
         TabuGraph g = new TabuGraph();
@@ -48,17 +47,93 @@ public class TabuMain {
     }
 
     public static void main(String[] args) {
-        TabuGraph g = loadInstance(
-            "C:\\Users\\obrad\\Desktop\\VI\\VI-Projekat\\projekatVI\\instances\\vc_200_500_01.txt");
-
-        System.out.println(g.getEdges());
-        List<Node> result = TabuSearch.vertexCoverTabuSearch(g.getNodes(), g.getEdges());
-        System.out.println(result);
-        int sum = 0;
-        for(Node n : result){
-            sum+= n.getWeight();
+        // C:\Users\obradovica\Desktop\VI
+        // projekat\VI-Projekat\projekatVI\instances\vc_10_10_01.txt
+        for (int i = 1; i < 6; i++) {
+            TabuGraph g = loadInstance(
+                    "C:\\Users\\obradovica\\Desktop\\VI projekat\\VI-Projekat\\projekatVI\\instances\\vc_10_10_0" + i
+                            + ".txt");
+            List<Node> result = TabuSearch.vertexCoverTabuSearch(g.getNodes(), g.getEdges());
+            int sum = 0;
+            for (Node n : result) {
+                sum += n.getWeight();
+            }
+            System.out.println("instanca vc_10_10_0: " + sum);
         }
-        System.out.println(sum);
+        System.out.println("-----------------");
+        for (int i = 1; i < 6; i++) {
+            TabuGraph g = loadInstance(
+                    "C:\\Users\\obradovica\\Desktop\\VI projekat\\VI-Projekat\\projekatVI\\instances\\vc_10_30_0" + i
+                            + ".txt");
+            List<Node> result = TabuSearch.vertexCoverTabuSearch(g.getNodes(), g.getEdges());
+            int sum = 0;
+            for (Node n : result) {
+                sum += n.getWeight();
+            }
+            System.out.println("instanca vc_10_30_0: " + sum);
+        }
+
+        System.out.println("-----------------");
+        for (int i = 1; i < 6; i++) {
+            TabuGraph g = loadInstance(
+                    "C:\\Users\\obradovica\\Desktop\\VI projekat\\VI-Projekat\\projekatVI\\instances\\vc_50_100_0" + i
+                            + ".txt");
+            List<Node> result = TabuSearch.vertexCoverTabuSearch(g.getNodes(), g.getEdges());
+            int sum = 0;
+            for (Node n : result) {
+                sum += n.getWeight();
+            }
+            System.out.println("instanca vc_50_100_0: " + sum);
+        }
+
+        System.out.println("-----------------");
+        for (int i = 1; i < 6; i++) {
+            TabuGraph g = loadInstance(
+                    "C:\\Users\\obradovica\\Desktop\\VI projekat\\VI-Projekat\\projekatVI\\instances\\vc_50_250_0" + i
+                            + ".txt");
+            List<Node> result = TabuSearch.vertexCoverTabuSearch(g.getNodes(), g.getEdges());
+            int sum = 0;
+            for (Node n : result) {
+                sum += n.getWeight();
+            }
+            System.out.println("instanca vc_50_250_0: " + sum);
+        }
+
+        System.out.println("-----------------");
+        for (int i = 1; i < 6; i++) {
+            TabuGraph g = loadInstance(
+                    "C:\\Users\\obradovica\\Desktop\\VI projekat\\VI-Projekat\\projekatVI\\instances\\vc_300_1000_0" + i
+                            + ".txt");
+            List<Node> result = TabuSearch.vertexCoverTabuSearch(g.getNodes(), g.getEdges());
+            int sum = 0;
+            for (Node n : result) {
+                sum += n.getWeight();
+            }
+            System.out.println("instanca vc_300_1000_0: " + sum);
+        }
+
+        System.out.println("-----------------");
+        for (int i = 1; i < 6; i++) {
+            TabuGraph g = loadInstance(
+                    "C:\\Users\\obradovica\\Desktop\\VI projekat\\VI-Projekat\\projekatVI\\instances\\vc_300_5000_0" + i
+                            + ".txt");
+            List<Node> result = TabuSearch.vertexCoverTabuSearch(g.getNodes(), g.getEdges());
+            int sum = 0;
+            for (Node n : result) {
+                sum += n.getWeight();
+            }
+            System.out.println("instanca vc_300_5000_0: " + sum);
+        }
+
+        // System.out.println(g.getEdges());
+        // List<Node> result = TabuSearch.vertexCoverTabuSearch(g.getNodes(),
+        // g.getEdges());
+        // System.out.println(result);
+        // int sum = 0;
+        // for (Node n : result) {
+        // sum += n.getWeight();
+        // }
+        // System.out.println(sum);
 
     }
 }
