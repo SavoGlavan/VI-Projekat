@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Main {
     private static Graph loadInstance(String filePath) {
@@ -44,14 +45,9 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        Graph g=loadInstance("C:\\Users\\Kmica\\IdeaProjects\\projekatVI\\instances\\vc_10_10_01.txt");
-        System.out.println(g.getNodes());
+        Graph g=loadInstance("C:\\Users\\Kmica\\IdeaProjects\\projekatVI\\instances\\vc_1000_1000.txt");
+        System.out.println("Minimal vertex Cover:");
+        System.out.print(GRASP.extractNodes(GRASP.findMinimalVertexCover(g)));
 
-        for(Node n: g.getNodes()){
-            System.out.println(n.getNeighbours());
-        }
-        System.out.println(g.getEdgeNumber());
-        System.out.println("Minimal vertex Cover");
-        System.out.print(GRASP.findMinimalVertexCover(g));
     }
 }

@@ -12,7 +12,7 @@ public class CPLEX {
     		   try {
     	            IloCplex cplex = new IloCplex();
     	         
-    	            TabuGraph g = Helper.loadInstance(
+    	            TabuGraph g = TabuMain.loadInstance(
     	                    "C:\\Users\\obrad\\Desktop\\VI\\VI-Projekat\\projekatVI\\instances\\vc_10_30_0" + i
                             + ".txt");
     	            int numVertices = g.getNodes().size();

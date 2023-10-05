@@ -50,7 +50,7 @@ public class TabuMain {
        
         
             // TabuGraph g = loadInstance(
-            //         "C:\\Users\\obrad\\Desktop\\VI\\VI-Projekat\\projekatVI\\instances\\vc_1000_1000.txt");
+            //         "C:\\Users\\obrad\\Desktop\\VI\\VI-Projekat\\projekatVI\\instances\\vc_10_10.txt");
             // List<Node> result = TabuSearch.vertexCoverTabuSearch(g.getNodes(), g.getEdges());
             // int sum = 0;
             // for (Node n : result) {

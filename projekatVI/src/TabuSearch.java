@@ -42,10 +42,7 @@ public class TabuSearch {
     }
 
     public static List<Node> vertexCoverTabuSearch(List<Node> nodes, List<Edge> edges) {
-        if (nodes == null || edges == null) {
-            throw new IllegalArgumentException("Nodes or edges cannot be null");
-        }
-
+       
         Set<Node> currentSolution = greedyInitialization(edges, nodes);
         Set<Node> bestSolution = new HashSet<>(currentSolution);
         Queue<Node> tabuList = new LinkedList<>();
