@@ -1,0 +1,35 @@
+instanca vc_10_10_0: 228
+instanca vc_10_10_0: 256
+instanca vc_10_10_0: 179
+instanca vc_10_10_0: 260
+instanca vc_10_10_0: 364
+-----------------
+instanca vc_10_30_0: 427
+instanca vc_10_30_0: 470
+instanca vc_10_30_0: 426
+instanca vc_10_30_0: 465
+instanca vc_10_30_0: 396
+-----------------
+instanca vc_50_100_0:  1852
+instanca vc_50_100_0:  1594
+instanca vc_50_100_0:  1691
+instanca vc_50_100_0:  1579
+instanca vc_50_100_0:  1655
+-----------------
+instanca vc_50_250  2505
+instanca vc_50_250  2371
+instanca vc_50_250  2136
+instanca vc_50_250  2237
+instanca vc_50_250  2370
+-----------------
+instanca vc_300_1000_0: 12033
+instanca vc_300_1000_0: 11851
+instanca vc_300_1000_0: 11477
+instanca vc_300_1000_0: 12691
+instanca vc_300_1000_0: 12507 
+-----------------
+instanca vc_500_500: 12616
+instanca vc_500_1000: 16465
+instanca vc_800_500: 15025 
+instanca vc_800_1000: 22747    
+instanca vc_1000_1000: 24723

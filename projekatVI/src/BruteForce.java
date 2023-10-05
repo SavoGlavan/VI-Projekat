@@ -4,20 +4,19 @@ public class BruteForce {
 
     public static List<Node> minimumWeightedVertexCover(List<Node> nodes, List<Edge> edges) {
         Set<Node> bestCover = null;
-        int bestWeight = Integer.MAX_VALUE;
-
+        long bestWeight = Long.MAX_VALUE;
+        
         int n = nodes.size();
-        for (int i = 0; i < (1 << n); i++) {
+        for (long i = 0; i < (1L << n); i++) {
             Set<Node> subset = new HashSet<>();
-
             for (int j = 0; j < n; j++) {
-                if ((i & (1 << j)) != 0) {
+                if ((i & (1L << j)) != 0) {
                     subset.add(nodes.get(j));
                 }
             }
 
             if (isVertexCover(subset, edges)) {
-                int weight = subset.stream().mapToInt(Node::getWeight).sum();
+                long weight = subset.stream().mapToLong(Node::getWeight).sum();
                 if (weight < bestWeight) {
                     bestWeight = weight;
                     bestCover = new HashSet<>(subset);
@@ -42,25 +41,31 @@ public class BruteForce {
         }
         return true;
     }
-
     public static void main(String[] args) {
-
-        TabuGraph g = TabuMain.loadInstance(
-                "C:\\Users\\obrad\\Desktop\\VI\\VI-Projekat\\projekatVI\\instances\\vc_10_10_02.txt");
-
-        List<Node> vertexCover = minimumWeightedVertexCover(g.getNodes(), g.getEdges());
-
-        System.out.println(vertexCover);
-
-        int sum = 0;
-        for (Node n : vertexCover) {
-            sum += n.getWeight();
+        
+        for (int i = 1; i < 6; i++) {
+            TabuGraph g = TabuMain.loadInstance(
+                    "C:\\Users\\obrad\\Desktop\\VI\\VI-projekat\\projekatVI\\instances\\vc_50_100_0" + i
+                            + ".txt");
+            List<Node> result = minimumWeightedVertexCover(g.getNodes(), g.getEdges());
+            int sum = 0;
+            for (Node n : result) {
+                sum += n.getWeight();
+            }
+            System.out.println("instanca vc_50_100_0_" + i+ ": " +sum);
+            
         }
-        System.out.println(sum);
-        System.out.println("Minimum Weighted Vertex Cover: ");
-        for (Node node : vertexCover) {
-            System.out.println("Node ID: " + node.getId() + ", Weight: " + node.getWeight());
+          for (int i = 1; i < 6; i++) {
+            TabuGraph g = TabuMain.loadInstance(
+                    "C:\\Users\\obrad\\Desktop\\VI\\VI-projekat\\projekatVI\\instances\\vc_50_250_0" + i
+                            + ".txt");
+            List<Node> result = minimumWeightedVertexCover(g.getNodes(), g.getEdges());
+            int sum = 0;
+            for (Node n : result) {
+                sum += n.getWeight();
+            }
+            System.out.println("instanca vc_50_250_0_" + i+ ": " +sum);
+        
         }
-
     }
 }
