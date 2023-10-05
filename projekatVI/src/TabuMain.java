@@ -4,7 +4,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
 
-
 public class TabuMain {
     public static TabuGraph loadInstance(String filePath) {
         TabuGraph g = new TabuGraph();
@@ -48,17 +47,21 @@ public class TabuMain {
     }
 
     public static void main(String[] args) {
-        TabuGraph g = loadInstance(
-            "C:\\Users\\obrad\\Desktop\\VI\\VI-Projekat\\projekatVI\\instances\\vc_200_500_01.txt");
+       
+        
+            // TabuGraph g = loadInstance(
+            //         "C:\\Users\\obrad\\Desktop\\VI\\VI-Projekat\\projekatVI\\instances\\vc_1000_1000.txt");
+            // List<Node> result = TabuSearch.vertexCoverTabuSearch(g.getNodes(), g.getEdges());
+            // int sum = 0;
+            // for (Node n : result) {
+            //     sum += n.getWeight();
+            // }
 
-        System.out.println(g.getEdges());
-        List<Node> result = TabuSearch.vertexCoverTabuSearch(g.getNodes(), g.getEdges());
-        System.out.println(result);
-        int sum = 0;
-        for(Node n : result){
-            sum+= n.getWeight();
-        }
-        System.out.println(sum);
+            // System.out.println(sum);
+ 
+        
+  
+     
 
     }
 }
