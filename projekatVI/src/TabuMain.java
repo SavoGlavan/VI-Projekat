@@ -47,17 +47,37 @@ public class TabuMain {
     }
 
     public static void main(String[] args) {
-       
-        
-            // TabuGraph g = loadInstance(
-            //         "C:\\Users\\obrad\\Desktop\\VI\\VI-Projekat\\projekatVI\\instances\\vc_10_10.txt");
-            // List<Node> result = TabuSearch.vertexCoverTabuSearch(g.getNodes(), g.getEdges());
-            // int sum = 0;
-            // for (Node n : result) {
-            //     sum += n.getWeight();
-            // }
+   TabuGraph g = loadInstance(
+                    "C:\\Users\\obrad\\Desktop\\VI\\VI-Projekat\\projekatVI\\instances\\vc_10_10_03.txt");
+             int sum = 0;
+             int bestRes = Integer.MAX_VALUE;
+             int worseRes = 0;
+            for (int i = 0; i < 10; i++) {
+            List<Node> result = TabuSearch.vertexCoverTabuSearch(g.getNodes(), g.getEdges());
+            
+            int single = 0;
+            for (Node n : result) {
+                sum += n.getWeight();
+                  single += n.getWeight();
+            }
 
-            // System.out.println(sum);
+               if(single <bestRes) {
+                    bestRes = single;
+                }
+                    if(single > worseRes) {
+                    worseRes = single;
+                }
+            }
+        
+            double avg = sum /10.0;
+         
+   
+            System.err.println("avg:");
+            System.out.println(avg);
+            System.err.println("best:");
+            System.out.println(bestRes);
+            System.err.println("worst:");
+            System.out.println(worseRes);
  
         
   
