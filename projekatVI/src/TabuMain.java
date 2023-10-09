@@ -47,83 +47,36 @@ public class TabuMain {
     }
 
     public static void main(String[] args) {
-        // C:\Users\obradovica\Desktop\VI
-        // projekat\VI-Projekat\projekatVI\instances\vc_10_10_01.txt
-        
-            TabuGraph g = loadInstance(
-                    "C:\\Users\\obrad\\Desktop\\VI\\VI-Projekat\\projekatVI\\instances\\vc_1000_1000.txt");
+        TabuGraph g = loadInstance(
+                "C:\\Users\\obrad\\Desktop\\VI\\VI-Projekat\\projekatVI\\instances\\vc_10_10_03.txt");
+        int sum = 0;
+        int bestRes = Integer.MAX_VALUE;
+        int worseRes = 0;
+        for (int i = 0; i < 10; i++) {
             List<Node> result = TabuSearch.vertexCoverTabuSearch(g.getNodes(), g.getEdges());
-            int sum = 0;
+
+            int single = 0;
             for (Node n : result) {
                 sum += n.getWeight();
+                single += n.getWeight();
             }
 
-            System.out.println(sum);
- 
-        
-  
-     
-        // System.out.println("-----------------");
-        // for (int i = 1; i < 6; i++) {
-        //     TabuGraph g = loadInstance(
-        //             "C:\\Users\\obrad\\Desktop\\VI\\VI-Projekat\\projekatVI\\instances\\vc_50_100_0" + i
-        //                     + ".txt");
-        //     List<Node> result = TabuSearch.vertexCoverTabuSearch(g.getNodes(), g.getEdges());
-        //     int sum = 0;
-        //     for (Node n : result) {
-        //         sum += n.getWeight();
-        //     }
-        //     System.out.println("instanca vc_50_100_0: " + sum);
-        // }
+            if (single < bestRes) {
+                bestRes = single;
+            }
+            if (single > worseRes) {
+                worseRes = single;
+            }
+        }
 
-        // System.out.println("-----------------");
-        // for (int i = 1; i < 6; i++) {
-        //     TabuGraph g = loadInstance(
-        //             "C:\\Users\\obrad\\Desktop\\VI\\VI-Projekat\\projekatVI\\instances\\vc_50_250_0" + i
-        //                     + ".txt");
-        //     List<Node> result = TabuSearch.vertexCoverTabuSearch(g.getNodes(), g.getEdges());
-        //     int sum = 0;
-        //     for (Node n : result) {
-        //         sum += n.getWeight();
-        //     }
-        //     System.out.println("instanca vc_50_250_0: " + sum);
-        // }
+        double avg = sum / 10.0;
 
-        // System.out.println("-----------------");
-        // for (int i = 1; i < 6; i++) {
-        //     TabuGraph g = loadInstance(
-        //             "C:\\Users\\obrad\\Desktop\\VI\\VI-Projekat\\projekatVI\\instances\\vc_300_1000_0" + i
-        //                     + ".txt");
-        //     List<Node> result = TabuSearch.vertexCoverTabuSearch(g.getNodes(), g.getEdges());
-        //     int sum = 0;
-        //     for (Node n : result) {
-        //         sum += n.getWeight();
-        //     }
-        //     System.out.println("instanca vc_300_1000_0: " + sum);
-        // }
-
-        // System.out.println("-----------------");
-        // for (int i = 1; i < 6; i++) {
-        //     TabuGraph g = loadInstance(
-        //             "C:\\Users\\obrad\\Desktop\\VI\\VI-Projekat\\projekatVI\\instances\\vc_300_5000_0" + i
-        //                     + ".txt");
-        //     List<Node> result = TabuSearch.vertexCoverTabuSearch(g.getNodes(), g.getEdges());
-        //     int sum = 0;
-        //     for (Node n : result) {
-        //         sum += n.getWeight();
-        //     }
-        //     System.out.println("instanca vc_300_5000_0: " + sum);
-        // }
-
-        // System.out.println(g.getEdges());
-        // List<Node> result = TabuSearch.vertexCoverTabuSearch(g.getNodes(),
-        // g.getEdges());
-        // System.out.println(result);
-        // int sum = 0;
-        // for (Node n : result) {
-        // sum += n.getWeight();
-        // }
-        // System.out.println(sum);
+        System.err.println("avg:");
+        System.out.println(avg);
+        System.err.println("best:");
+        System.out.println(bestRes);
+        System.err.println("worst:");
+        System.out.println(worseRes);
 
     }
 }
