@@ -47,12 +47,50 @@ public class TabuMain {
     }
 
     public static void main(String[] args) {
+        int bigSum = 0;
+        for (int i = 1; i < 10; i++) {
+            TabuGraph g = loadInstance(
+                    "C:\\Users\\obradovica\\Desktop\\VI projekat\\VI-Projekat\\projekatVI\\instances\\vc_50_50_0" + i
+                            + ".txt");
+            int sum = 0;
+            int bestRes = Integer.MAX_VALUE;
+            int worseRes = 0;
+            for (int j = 0; j < 10; j++) {
+                List<Node> result = TabuSearch.vertexCoverTabuSearch(g.getNodes(), g.getEdges());
+
+                int single = 0;
+                for (Node n : result) {
+                    sum += n.getWeight();
+                    single += n.getWeight();
+                }
+
+                if (single < bestRes) {
+                    bestRes = single;
+                }
+                if (single > worseRes) {
+                    worseRes = single;
+                }
+            }
+
+            double avg = sum / 10.0;
+            System.err.println("vc_50_50_0" + i + ".txt");
+            System.err.println("avg:");
+            System.out.println(avg);
+            System.err.println("best:");
+            System.out.println(bestRes);
+            System.err.println("worst:");
+            System.out.println(worseRes);
+
+            bigSum += bestRes;
+            System.out.println("bigsum: " + bigSum);
+        }
+
         TabuGraph g = loadInstance(
-                "C:\\Users\\obrad\\Desktop\\VI\\VI-Projekat\\projekatVI\\instances\\vc_10_10_03.txt");
+                "C:\\Users\\obradovica\\Desktop\\VI projekat\\VI-Projekat\\projekatVI\\instances\\vc_50_50_10.txt");
         int sum = 0;
         int bestRes = Integer.MAX_VALUE;
         int worseRes = 0;
-        for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 10; j++) {
             List<Node> result = TabuSearch.vertexCoverTabuSearch(g.getNodes(), g.getEdges());
 
             int single = 0;
